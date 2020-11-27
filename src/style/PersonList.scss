@@ -2,3 +2,13 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.item-container {
+  width: 100px;
+  margin: 5px;
+
+  .add-button {
+    height: 100%;
+    width: 110%;
+  }
+}

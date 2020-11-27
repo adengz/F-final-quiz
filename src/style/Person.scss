@@ -1,9 +1,9 @@
 @import 'variables';
+@import 'PersonList.scss';
 
 .person {
-  width: 100px;
+  @extend .item-container;
   padding: 5px;
-  margin: 5px;
   background-color: $light-gray;
   text-align: center;
 

@@ -29,11 +29,11 @@ const App = () => {
       </section>
       <section>
         <h2>讲师列表</h2>
-        <PersonList data={trainers} title="trainers" />
+        <PersonList data={trainers} title="trainers" canAdd />
       </section>
       <section>
         <h2>学员列表</h2>
-        <PersonList data={trainees} title="trainees" />
+        <PersonList data={trainees} title="trainees" canAdd />
       </section>
     </>
   );
