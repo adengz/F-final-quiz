@@ -1,0 +1,24 @@
+@import 'variables';
+
+.group-container {
+  margin: 10px 0;
+  border: 1px solid $gray;
+  border-radius: 2px;
+
+  .group-header {
+    background-color: $gray;
+    justify-content: flex-end;
+    position: relative;
+
+    .group-name {
+      color: $bg-gray;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .group-trainees {
+    padding: 10px;
+  }
+}
