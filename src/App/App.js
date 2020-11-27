@@ -1,14 +1,5 @@
-import React, { Component } from 'react';
-import './App.scss';
+import React from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div data-testid="app" className="App">
-        Hello World
-      </div>
-    );
-  }
-}
+const App = () => <div>Hello World</div>;
 
 export default App;
