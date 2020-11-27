@@ -1,16 +1,15 @@
-import React from 'react';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
-import reducers from '../reducers';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchInitialData } from '../actions';
 
-const store = createStore(reducers, applyMiddleware(thunk, logger));
+const App = () => {
+  const dispatch = useDispatch();
 
-const App = () => (
-  <Provider store={store}>
-    <div>Hello World</div>
-  </Provider>
-);
+  useEffect(() => {
+    dispatch(fetchInitialData());
+  }, []);
+
+  return <div>Hello World</div>;
+};
 
 export default App;
