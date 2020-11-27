@@ -21,11 +21,11 @@ const App = () => {
       </section>
       <section>
         <h2>讲师列表</h2>
-        <PersonList data={trainers} />
+        <PersonList data={trainers} title="trainers" />
       </section>
       <section>
         <h2>学员列表</h2>
-        <PersonList data={trainees} />
+        <PersonList data={trainees} title="trainees" />
       </section>
     </>
   );

@@ -3,4 +3,18 @@
 body {
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: $base-font-size;
+  background-color: $bg-gray;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
 }
