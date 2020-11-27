@@ -24,7 +24,7 @@ const App = () => {
           </button>
         </header>
         {groupIds.map((gid) => (
-          <Group gid={gid} />
+          <Group key={gid} gid={gid} />
         ))}
       </section>
       <section>
