@@ -17,7 +17,16 @@ const reducers = (state = defaultState, action) => {
       const { groups, trainers, trainees } = action;
       return {
         ...state,
-        groups: array2Object(groups),
+        groups: Object.fromEntries(
+          groups.map((group) => [
+            group.id,
+            {
+              ...group,
+              trainers: array2Object(group.trainers),
+              trainees: array2Object(group.trainees),
+            },
+          ])
+        ),
         ungrouped: {
           trainers: array2Object(trainers),
           trainees: array2Object(trainees),
@@ -48,7 +57,7 @@ const reducers = (state = defaultState, action) => {
               [groupId]: {
                 ...state.groups[groupId],
                 [title]: Object.fromEntries(
-                  Object.entries(state.groups[groupId]).filter(([pid]) => pid !== id)
+                  Object.entries(state.groups[groupId][title]).filter(([pid]) => pid !== id)
                 ),
               },
             },
