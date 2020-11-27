@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchInitialData } from '../actions';
+import { receiveDataThunk, refreshGroupsThunk } from '../actions';
 import Group from '../components/Group';
 import PersonList from '../components/PersonList';
 import '../style/App.scss';
@@ -11,15 +11,19 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchInitialData());
+    dispatch(receiveDataThunk());
   }, []);
+
+  const handleGrouping = () => {
+    dispatch(refreshGroupsThunk());
+  };
 
   return (
     <>
       <section>
         <header className="group-header">
           <h2>分组列表</h2>
-          <button className="group-button" type="submit">
+          <button className="group-button" type="submit" onClick={handleGrouping}>
             分组学员
           </button>
         </header>
@@ -29,11 +33,11 @@ const App = () => {
       </section>
       <section>
         <h2>讲师列表</h2>
-        <PersonList data={trainers} title="trainers" canAdd />
+        <PersonList data={trainers} title="trainers" />
       </section>
       <section>
         <h2>学员列表</h2>
-        <PersonList data={trainees} title="trainees" canAdd />
+        <PersonList data={trainees} title="trainees" />
       </section>
     </>
   );
