@@ -1,0 +1,15 @@
+@import 'variables';
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .group-button {
+    height: 40px;
+    padding: 0 40px;
+    border: none;
+    background-color: $primary-color;
+    color: $bg-gray;
+  }
+}

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchInitialData } from '../actions';
 import PersonList from '../components/PersonList';
+import '../style/App.scss';
 
 const App = () => {
   const { trainers, trainees } = useSelector(({ ungrouped }) => ungrouped);
@@ -14,9 +15,11 @@ const App = () => {
   return (
     <>
       <section>
-        <header>
+        <header className="group-header">
           <h2>分组列表</h2>
-          <button type="submit">分组学员</button>
+          <button className="group-button" type="submit">
+            分组学员
+          </button>
         </header>
       </section>
       <section>
