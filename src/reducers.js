@@ -13,9 +13,10 @@ const array2Object = (arr) => Object.fromEntries(arr.map((item) => [item.id, ite
 const reducers = (state = defaultState, action) => {
   switch (action.type) {
     case RECEIVE_PEOPLE: {
-      const { trainers, trainees } = action;
+      const { groups, trainers, trainees } = action;
       return {
         ...state,
+        groups,
         ungrouped: {
           trainers: array2Object(trainers),
           trainees: array2Object(trainees),
