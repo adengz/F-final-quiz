@@ -26,7 +26,7 @@ const refreshGroups = (groups, trainers) => ({
   type: REFRESH_GROUPS,
   groups,
   trainers,
-  trainees: {},
+  trainees: [],
 });
 
 export const refreshGroupsThunk = () => {
