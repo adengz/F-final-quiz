@@ -1,4 +1,4 @@
-const HOST = 'http://localhost:8080';
+const HOST = 'http://localhost:5000';
 const headers = { 'Content-Type': 'application/json' };
 
 export const getUngrouped = async (title) => {
@@ -21,8 +21,7 @@ export const postPerson = async (title, name) => {
 };
 
 export const deletePerson = async (title, id) => {
-  const response = await fetch(`${HOST}/${title}/${id}`, { method: 'DELETE', headers });
-  return response.ok ? response.json() : Promise.reject(response);
+  await fetch(`${HOST}/${title}/${id}`, { method: 'DELETE', headers });
 };
 
 export const postGroups = async () => {

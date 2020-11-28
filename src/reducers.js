@@ -37,31 +37,38 @@ const reducers = (state = defaultState, action) => {
       const { title, id, name } = action;
       return {
         ...state,
-        [title]: {
-          ...state[title],
-          [id]: { id, name },
+        ungrouped: {
+          ...state.ungrouped,
+          [title]: {
+            ...state.ungrouped[title],
+            [id]: { id, name },
+          },
         },
       };
     }
     case DELETE_PERSON: {
       const { title, id, groupId } = action;
-      return typeof groupId === 'undefined'
-        ? {
-            ...state,
-            [title]: Object.fromEntries(Object.entries(state[title]).filter(([pid]) => pid !== id)),
-          }
-        : {
-            ...state,
-            groups: {
-              ...state.groups,
-              [groupId]: {
-                ...state.groups[groupId],
-                [title]: Object.fromEntries(
-                  Object.entries(state.groups[groupId][title]).filter(([pid]) => pid !== id)
-                ),
-              },
-            },
-          };
+      if (typeof groupId === 'undefined') {
+        const { [id]: _, ...rest } = state.ungrouped[title];
+        return {
+          ...state,
+          ungrouped: {
+            ...state.ungrouped,
+            [title]: rest,
+          },
+        };
+      }
+      const { [id]: _, ...rest } = state.groups[groupId][title];
+      return {
+        ...state,
+        groups: {
+          ...state.groups,
+          [groupId]: {
+            ...state.groups[groupId],
+            [title]: rest,
+          },
+        },
+      };
     }
     default:
       return state;
